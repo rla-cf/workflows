@@ -27,7 +27,7 @@ jobs:
           echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
