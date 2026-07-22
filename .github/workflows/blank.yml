@@ -6,7 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    # branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -20,6 +20,10 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    concurrency:
+      group: ci-${{ github.ref }}
+      # allow multiple pending jobs per branch. To test, create a new branch and push more than once
+      queue: max 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Start Summary Markdown
